@@ -8,3 +8,15 @@ div#footer {
   padding: 10px;
   margin: auto;
 }
+
+div#nav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 40px;
+  width: 100%;
+  color: #CCC;
+  background: #5bc0de;
+  padding: 5px;
+  margin: auto;
+}

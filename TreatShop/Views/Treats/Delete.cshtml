@@ -1,5 +1,5 @@
 @{
-    Layout = "_Layout";
+	Layout = "_Layout";
 }
 
 @model TreatShop.Models.Treat;
@@ -9,6 +9,6 @@
 @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Delete" class="btn btn-danger" />
+	<input type="submit" value="Delete" class="btn btn-danger" />
 }
 @Html.ActionLink("Back to List", "Index")

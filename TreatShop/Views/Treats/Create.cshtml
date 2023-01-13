@@ -1,5 +1,5 @@
 @{
-    Layout = "_Layout";
+	Layout = "_Layout";
 }
 
 @model TreatShop.Models.Treat
@@ -10,10 +10,10 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Name)
-    ;
-    @Html.TextBoxFor(model => model.Name)
-    ;
-    <input type="submit" value="Add" />
+	@Html.LabelFor(model => model.Name)
+	;
+	@Html.TextBoxFor(model => model.Name)
+	;
+	<input type="submit" value="Add" />
 }
 <p>@Html.ActionLink("Back to List", "Index")</p>
