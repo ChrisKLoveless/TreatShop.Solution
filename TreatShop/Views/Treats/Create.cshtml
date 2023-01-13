@@ -4,7 +4,9 @@
 
 @model TreatShop.Models.Treat
 
-<h1>Create an Treat</h1>
+<h1>Create a Treat</h1>
+
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 @using (Html.BeginForm())
 {
