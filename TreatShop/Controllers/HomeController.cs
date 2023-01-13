@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TreatShop.Models;
 
 namespace TreatShop.Controllers
 {

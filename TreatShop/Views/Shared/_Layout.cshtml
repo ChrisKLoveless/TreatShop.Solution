@@ -11,9 +11,21 @@
 </head>
 
 <body>
+  <div id="nav">
+		<div class="row">
+			<div class="col-4">
+				<p>@Html.ActionLink("Back Home", "Index", "Home")</p>
+			</div>
+			<div class="col-4">
+				<p>@Html.ActionLink("Manage Treats", "Index", "Treats")</p>
+			</div>
+			<div class="col-4">
+				<p>@Html.ActionLink("Manage Flavors", "Index", "Flavors")</p>
+			</div>
+		</div>
+	</div>
   @RenderBody()
 
-  @await Html.PartialAsync("Footer")
 </body>
 
 </html
