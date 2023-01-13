@@ -1,13 +1,14 @@
 # Treat Shop
 
 #### Description
+Epicodus Week 12 Code Review
 
 ## Contributors
 
 * Chris Loveless
 
 ## Description
-<!-- This project is a simple web application for a business to keep track of Stylists and their Clients. Stylists and Clients have a one to many relationship meaning each Client only belongs to one Stylist. A Stylist can have many clients. The application allows the user to create, update, delete, and view lists of the Stylists they employ and their corresponding clients. The app also includes fields for notes about the clients. -->
+This independent project demonstrates proficiency with many to many relationships, user authentication using Identity, and authorization using roles. The user can view lists of Treats and Flavors, however the user must sign in or register an account before they can Create, Update, or Delete any of the classes or joined entities.
 
 ## Technologies Used
 
