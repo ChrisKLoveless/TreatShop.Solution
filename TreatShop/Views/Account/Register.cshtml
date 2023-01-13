@@ -6,26 +6,31 @@
 
 @model RegisterViewModel;
 
-<h2>Register a new user</h2>
+<div class="page-header">
+  <h1>Register a new Account</h1>
+  <hr>
+</div>
 <hr />
+<div id="form">
+  @if (!ViewData.ModelState.IsValid)
+  {
+    @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:")
+  }
 
-@if(!ViewData.ModelState.IsValid) 
-{
-  @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:") 
-}
+  @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+  {
+    <em>@Html.LabelFor(user => user.Email)</em>
+    @Html.TextBoxFor(user=> user.Email)<br>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-  @Html.LabelFor(user => user.Email)
-  @Html.TextBoxFor(user=> user.Email)
+    <em>@Html.LabelFor(user=> user.Password)</em>
+    @Html.EditorFor(user=> user.Password)<br>
 
-  @Html.LabelFor(user=> user.Password)
-  @Html.EditorFor(user=> user.Password)
+    <em>@Html.LabelFor(user=> user.ConfirmPassword)</em>
+    @Html.EditorFor(user=> user.ConfirmPassword)<br>
+    <hr>
 
-  @Html.LabelFor(user=> user.ConfirmPassword)
-  @Html.EditorFor(user=> user.ConfirmPassword)
-
-  <input type="submit" value="Register" />
-}
-
-<p>@Html.ActionLink("Back to accounts page", "Index")</p>
+    <input type="submit" value="Register" class="btn btn-success"/>
+  }
+  <br>
+  <p>@Html.ActionLink("Back to accounts page", "Index")</p>
+</div>

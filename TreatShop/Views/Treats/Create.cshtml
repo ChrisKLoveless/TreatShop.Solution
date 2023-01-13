@@ -4,16 +4,20 @@
 
 @model TreatShop.Models.Treat
 
-<h1>Create a Treat</h1>
+<div class="page-header">
+	<h1>Create a Treat</h1>
+	<hr>
+</div>
 
 <p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
-@using (Html.BeginForm())
-{
-	@Html.LabelFor(model => model.Name)
-	;
-	@Html.TextBoxFor(model => model.Name)
-	;
-	<input type="submit" value="Add" />
-}
+<div id="form">
+	@using (Html.BeginForm())
+	{
+		@Html.LabelFor(model => model.Name)<br>
+		@Html.TextBoxFor(model => model.Name)
+		<input type="submit" value="Add" />
+	}
+</div>
+
 <p>@Html.ActionLink("Back to List", "Index")</p>

@@ -2,24 +2,36 @@
 	Layout = "_Layout";
 }
 
-<h1>Treats</h1>
+<div class="page-header">
+	<h1>Treats</h1>
+	<hr>
+</div>
 
 @using TreatShop.Models;
 
-<h3>List of Treats</h3>
+<h3><u>List of Treats</u></h3>
 
-@if (Model.Count == 0)
-{
-	<h3>No Treats have been added yet</h3>
-}
-else
-{
-	<ul>
-		@foreach (Treat treat in Model)
-		{
-			<li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</li>
-		}
-	</ul>
-}
-
-<p>@Html.ActionLink("Create a new Treat", "Create")</p>
+<div id="form">
+	@if (Model.Count == 0)
+	{
+		<h3>No Treats have been added yet</h3>
+	}
+	else
+	{
+		<ul>
+			@foreach (Treat treat in Model)
+			{
+				<div class="card" style="width: 10rem;">
+					<img
+				src="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/512/external-treat-pet-care-icongeek26-outline-colour-icongeek26.png"
+				class="card-img-top" alt="example treat image">
+					<div class="card-body">
+						<h5 class="card-title"><strong>@treat.Name</strong></h5>
+						<p class="btn btn-light">@Html.ActionLink("Details", "Details", "Treats", new { id = @treat.TreatId})</p>
+					</div>
+				</div>
+			}
+		</ul>
+	}
+	<p>@Html.ActionLink("Create a new Treat", "Create")</p>
+</div>

@@ -4,16 +4,21 @@
 
 @model TreatShop.Models.Treat;
 
-<h2>Add a Flavor</h2>
+<div class="page-header">
+  <h1>Add a Flavor </h1>
+  <hr>
+</div>
 
-<h4>Add a Flavor to this Treat: @Html.DisplayFor(model => model.Name)</h4>
+<div id="form">
+  <h4>Add a Flavor to this Treat: @Html.DisplayFor(model => model.Name)</h4>
 
-@using (Html.BeginForm())
-{
+  @using (Html.BeginForm())
+  {
     @Html.HiddenFor(model => model.TreatId)
 
     @Html.Label("Select Flavor")
     @Html.DropDownList("FlavorId")
 
     <input type="submit" value="Save" />
-}
+  }
+</div>

@@ -4,11 +4,17 @@
 
 @model TreatShop.Models.Treat;
 
-<h2>Are you sure you want to delete this?</h2>
+<div class="page-header">
+	<h1>Delete</h1>
+	<hr>
+</div>
 
-@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
-@using (Html.BeginForm())
-{
-	<input type="submit" value="Delete" class="btn btn-danger" />
-}
+<h3>Are you sure?</h3>
+<div id="form">
+	@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+	@using (Html.BeginForm())
+	{
+		<input type="submit" value="Delete" class="btn btn-danger" />
+	}
+</div>
 @Html.ActionLink("Back to List", "Index")

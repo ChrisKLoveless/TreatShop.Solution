@@ -4,16 +4,21 @@
 
 @model TreatShop.Models.Flavor;
 
-<h2>Edit this Flavor</h2>
+<div class="page-header">
+  <h1>Edit</h1>
+  <hr>
+</div>
 
-<h4>Flavor: @Html.DisplayFor(model => model.Name)</h4>
+<div id="form">
+  <h4>Flavor: @Html.DisplayFor(model => model.Name)</h4>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.FlavorId)
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.FlavorId)
 
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
 
-  <input type="submit" value="Save" />
-}
+    <input type="submit" value="Save" />
+  }
+</div>

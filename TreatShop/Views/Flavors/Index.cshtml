@@ -2,24 +2,33 @@
   Layout = "_Layout";
 }
 
-<h1>Flavors</h1>
+<div class="page-header">
+  <h1>Flavors</h1>
+  <hr>
+</div>
 
 @using TreatShop.Models;
 
-<h3>List of Flavors</h3>
-
-@if (Model.Count == 0)
-{
-  <h3>No Flavors have been added yet</h3>
-}
-else
-{
-  <ul>
-  @foreach (Flavor flavor in Model)
+<div id="form">
+  <h3><u>List of Flavors</u></h3>
+  @if (Model.Count == 0)
   {
-    <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
+    <h3>No Flavors have been added yet</h3>
   }
-  </ul>
-}
-
-<p>@Html.ActionLink("Create a new Flavor", "Create")</p>
+  else
+  {
+    <ul>
+      @foreach (Flavor flavor in Model)
+      {
+        <div class="card" style="width: 10rem;">
+          <img src="https://img.icons8.com/emoji/512/tongue-emoji.png" class="card-img-top" alt="example flavor image">
+          <div class="card-body">
+            <h5 class="card-title"><strong>@flavor.Name</strong></h5>
+            <p class="btn btn-light">@Html.ActionLink("Details", "Details", "Flavors", new { id = @flavor.FlavorId})</p>
+          </div>
+        </div>
+      }
+    </ul>
+  }
+  <p>@Html.ActionLink("Create a new Flavor", "Create")</p>
+</div>

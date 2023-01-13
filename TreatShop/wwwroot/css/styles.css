@@ -1,11 +1,13 @@
 a {
   color: rgb(100, 89, 196);
   font-weight: bold;
+  font-family: 'Abel', sans-serif;
+  font-size: larger;
 }
 
 body {
   background-color: rgb(240, 167, 159);
-  font-family: 'Abel', sans-serif;
+  font-family: 'Caveat Brush', cursive;
   color: white;
 }
 
@@ -20,6 +22,28 @@ div#footer {
   width: 100%;
   padding: 10px;
   margin: auto;
+}
+
+div#form {
+  text-align: center;
+}
+
+hr {
+  color: white;
+  width: 5px;
+  height: 5px;
+}
+
+h1 {
+  font-family: 'Abel', sans-serif;
+}
+
+h3 {
+  text-align: center;
+}
+
+h3#denied {
+  color: red;
 }
 
 #nav-bar {

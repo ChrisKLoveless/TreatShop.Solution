@@ -7,7 +7,7 @@
 * Chris Loveless
 
 ## Description
-This independent project demonstrates proficiency with many to many relationships, user authentication using Identity, and authorization using roles. The user can view lists of Treats and Flavors, however the user must sign in or register an account before they can Create, Update, or Delete any of the classes or joined entities.
+This independent project demonstrates proficiency with many to many relationships, user authentication using Identity, and authorization using roles. The user can view lists of Treats and Flavors, however the user must sign in or register an account before they can Create, Update, or Delete any of the classes or joined entities. With roles active only users with the role of "admin" can Create, Update, or Delete.
 
 ## Technologies Used
 
@@ -22,11 +22,9 @@ This independent project demonstrates proficiency with many to many relationship
 ## Setup/Installation Requirements
 
 * Install MySQL Community Server and MySQL Workbench. Follow the instructions _[here](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql/)_.
-* Clone down the git repo ```https://github.com/ChrisKLoveless/TreatShop.Solution.git``` to the ```desktop``` directory
+* Clone down the git repo ```https://github.com/ChrisKLoveless/TreatShop.Solution.git``` to the ```desktop``` directory.
 * Open the project with VSCode or a different source code editor.
 * Restore required packages: change directory to ```TreatShop``` and restore with ```$ dotnet restore```
-* While in the ```TreatShop``` directory use ```$ dotnet build``` to build the program.
-* While in the ```TreatShop``` directory use ```$ dotnet watch run``` to run the program in the browser with a watcher.
 
 ## Database Setup
 
@@ -39,6 +37,10 @@ This independent project demonstrates proficiency with many to many relationship
     }
 }
 ```
+* While in the ```TreatShop``` directory use ```$ dotnet build``` to build the program.
+* To include this projects' data structure, change directory to ```TreatShop```, and run ```dotnet ef migrations add Initial``` and then run ```dotnet ef database update```
+* While in the ```TreatShop``` directory use ```$ dotnet watch run``` to run the program in the browser with a watcher.
+
 ## Known Bugs
 
 * If any bugs are found please email a brief description to: ```chriskloveless@gmail.com```
