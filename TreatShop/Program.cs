@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ProjectName.Models;
+using TreatShop.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace ProjectName
+namespace TreatShop
 {
   class Program
   {
@@ -15,7 +15,7 @@ namespace ProjectName
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<ProjectNameContext>(
+      builder.Services.AddDbContext<TreatShopContext>(
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
@@ -23,7 +23,7 @@ namespace ProjectName
                         )
                       );
 
-      builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ProjectNameContext>().AddDefaultTokenProviders();
+      builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<TreatShopContext>().AddDefaultTokenProviders();
 
         //settings for development environment-----------------------------------------------vv
       builder.Services.Configure<IdentityOptions>(options =>
