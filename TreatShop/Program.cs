@@ -28,7 +28,6 @@ namespace TreatShop
 			.AddEntityFrameworkStores<TreatShopContext>()
 			.AddDefaultTokenProviders();
 
-      //settings for development environment-----------------------------------------------vv
       builder.Services.Configure<IdentityOptions>(options =>
       {
         options.Password.RequireDigit = false;
