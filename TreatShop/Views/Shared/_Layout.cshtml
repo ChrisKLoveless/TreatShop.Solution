@@ -2,30 +2,44 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <link rel="icon" href="https://img.icons8.com/neon/2x/experimental-barber-pole-neon.png">
-  <title>Treat Shop</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="~/css/styles.css">
+	<meta charset="utf-8">
+	<link rel="icon"
+		href="https://img.icons8.com/external-tulpahn-outline-color-tulpahn/512/external-yummy-cat-emoji-tulpahn-outline-color-tulpahn.png">
+	<title>Treat Shop</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="~/css/styles.css">
 </head>
 
 <body>
-  <div id="nav">
-		<div class="row">
-			<div class="col-4">
-				<p>@Html.ActionLink("Back Home", "Index", "Home")</p>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav-bar">
+			<div class="container-fluid">
+				<div class="row">
+					<a class="navbar-brand"><img
+							src="https://img.icons8.com/external-tulpahn-outline-color-tulpahn/125/external-yummy-cat-emoji-tulpahn-outline-color-tulpahn.png"
+							alt=""></a>
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a>@Html.ActionLink("Home", "Index", "Home")</a>
+						</li>
+						<li class="nav-item">
+							<a>@Html.ActionLink("Treats", "Index", "Treats")</a>
+						</li>
+						<li class="nav-item">
+							<a>@Html.ActionLink("Flavors", "Index", "Flavors")</a>
+						</li>
+						<li class="nav-item">
+							<p>@Html.ActionLink("Register / Sign In", "Index", "Account")</p>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-4">
-				<p>@Html.ActionLink("Manage Treats", "Index", "Treats")</p>
-			</div>
-			<div class="col-4">
-				<p>@Html.ActionLink("Manage Flavors", "Index", "Flavors")</p>
-			</div>
-		</div>
-	</div>
-  @RenderBody()
+		</nav>
+		@RenderBody()
 
+		@await Html.PartialAsync("Footer")
+	</div>
 </body>
 
 </html

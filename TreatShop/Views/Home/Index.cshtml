@@ -2,6 +2,50 @@
 	Layout = "_Layout";
 }
 
-<h1>Welcome to the Treat Shop</h1>
+@using TreatShop.Models;
 
-<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
+<div class="page-header">
+	<h1>Welcome to the Treat Shop</h1>
+</div>
+
+
+<div class="row">
+	<div class="col-6" id="home-list">
+
+		<h4><u>Available Treats</u></h4>
+		@if (Model["Treats"].Length == 0)
+		{
+			<p>No Treats have been added yet!</p>
+		}
+
+		@foreach (Treat treat in Model["Treats"])
+		{
+			<div class="card" style="width: 10rem;">
+				<img src="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/512/external-treat-pet-care-icongeek26-outline-colour-icongeek26.png" class="card-img-top" alt="example treat image">
+				<div class="card-body">
+					<h5 class="card-title"><strong>@treat.Name</strong></h5>
+					<p class="btn btn-light">@Html.ActionLink("Details", "Details", "Treats", new { id = @treat.TreatId})</p>
+				</div>
+			</div>
+		}
+	</div>
+
+	<div class="col-6 " id="home-list">
+		<h4><u>Available Flavors</u></h4>
+		@if (Model["Flavors"].Length == 0)
+		{
+			<p>No Flavors have been added yet!</p>
+		}
+
+		@foreach (Flavor flavor in Model["Flavors"])
+		{
+			<div class="card" style="width: 10rem;">
+				<img src="https://img.icons8.com/emoji/512/tongue-emoji.png" class="card-img-top" alt="example flavor image">
+				<div class="card-body">
+					<h5 class="card-title"><strong>@flavor.Name</strong></h5>
+					<p class="btn btn-light">@Html.ActionLink("Details", "Details", "Treats", new { id = @flavor.FlavorId})</p>
+				</div>
+			</div>
+		}
+	</div>
+</div>

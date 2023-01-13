@@ -1,22 +1,45 @@
+a {
+  color: rgb(100, 89, 196);
+  font-weight: bold;
+}
+
+body {
+  background-color: rgb(240, 167, 159);
+  font-family: 'Abel', sans-serif;
+  color: white;
+}
+
+div.card-body {
+  background-color: rgb(240, 167, 159);
+}
+
 div#footer {
   position: fixed;
   bottom: 0px;
   left: 0px;
   width: 100%;
-  color: #CCC;
-  background: #333;
   padding: 10px;
   margin: auto;
 }
 
-/* div#nav {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  height: 40px;
-  width: 100%;
-  color: #CCC;
-  background: #5bc0de;
-  padding: 5px;
+#nav-bar {
+  padding-top: 25px;
+}
+
+div#home-list {
+  text-align: center;
+}
+
+div.page-header {
+  text-align: center;
+  padding: 10px;
   margin: auto;
-} */
+}
+
+.nav-item {
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+}
+
+
