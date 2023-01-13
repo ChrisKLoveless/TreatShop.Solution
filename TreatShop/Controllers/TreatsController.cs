@@ -25,13 +25,13 @@ namespace TreatShop.Controllers
       return View(treats);
     }
 
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public ActionResult Create()
     {
       return View();
     }
 
-    [Authorize]
+    [Authorize(Roles = "admin")]
     [HttpPost]
     public ActionResult Create(Treat treat)
     {
@@ -47,7 +47,7 @@ namespace TreatShop.Controllers
       }
     }
 
-    [Authorize]
+    
     public ActionResult Details(int id)
     {
       Treat thisTreat = _db.Treats
@@ -57,14 +57,14 @@ namespace TreatShop.Controllers
       return View(thisTreat);
     }
 
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public ActionResult Edit(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
 
-    [Authorize]
+    [Authorize(Roles = "admin")]
     [HttpPost]
     public ActionResult Edit(Treat treat)
     {
@@ -73,14 +73,14 @@ namespace TreatShop.Controllers
       return RedirectToAction("Index");
     }
 
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public ActionResult Delete(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
 
-    [Authorize]
+    [Authorize(Roles = "admin")]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirm(int id)
     {
@@ -90,7 +90,7 @@ namespace TreatShop.Controllers
       return RedirectToAction("Index");
     }
 
-    [Authorize]
+    
     public ActionResult AddFlavor(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
@@ -98,7 +98,7 @@ namespace TreatShop.Controllers
       return View(thisTreat);
     }
 
-    [Authorize]
+    
     [HttpPost]
     public ActionResult AddFlavor(Treat treat, int flavorId)
     {
@@ -113,7 +113,7 @@ namespace TreatShop.Controllers
       return RedirectToAction("Details", new { id = treat.TreatId });
     }
 
-    [Authorize]
+    
     [HttpPost]
     public ActionResult DeleteJoin(int joinId)
     {

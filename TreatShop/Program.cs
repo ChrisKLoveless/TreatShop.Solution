@@ -23,9 +23,12 @@ namespace TreatShop
                         )
                       );
 
-      builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<TreatShopContext>().AddDefaultTokenProviders();
+      builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+			.AddRoles<IdentityRole>()
+			.AddEntityFrameworkStores<TreatShopContext>()
+			.AddDefaultTokenProviders();
 
-        //settings for development environment-----------------------------------------------vv
+      //settings for development environment-----------------------------------------------vv
       builder.Services.Configure<IdentityOptions>(options =>
       {
         options.Password.RequireDigit = false;
@@ -34,7 +37,7 @@ namespace TreatShop
         options.Password.RequireUppercase = false;
         options.Password.RequiredLength = 0;
         options.Password.RequiredUniqueChars = 0;
-          // Default Password settings.
+        // Default Password settings.
         // options.Password.RequireDigit = true;
         // options.Password.RequireLowercase = true;
         // options.Password.RequireNonAlphanumeric = true;

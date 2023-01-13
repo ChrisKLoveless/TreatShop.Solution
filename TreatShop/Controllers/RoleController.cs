@@ -11,19 +11,19 @@ namespace TreatShop.Controllers
     private RoleManager<IdentityRole> roleManager;
     private UserManager<ApplicationUser> userManager;
     public RoleController(RoleManager<IdentityRole> roleMgr, UserManager<ApplicationUser> userMrg)
-        {
-            roleManager = roleMgr;
-            userManager = userMrg;
-        }
-
-    public async Task<ActionResult> Index() 
     {
-      Dictionary<string, List<string>> members = new Dictionary<string, List<string>>{};
+      roleManager = roleMgr;
+      userManager = userMrg;
+    }
+
+    public async Task<ActionResult> Index()
+    {
+      Dictionary<string, List<string>> members = new Dictionary<string, List<string>> { };
       foreach (IdentityRole role in roleManager.Roles.ToList())
       {
         string newRoleId = role.Id;
-        IList<ApplicationUser> validMembers =  await userManager.GetUsersInRoleAsync(role.Name);
-        List<string> memberNames = new List<string>{};
+        IList<ApplicationUser> validMembers = await userManager.GetUsersInRoleAsync(role.Name);
+        List<string> memberNames = new List<string> { };
         foreach (ApplicationUser memb in validMembers.ToList())
         {
           memberNames.Add(memb.UserName);
@@ -74,59 +74,58 @@ namespace TreatShop.Controllers
     }
 
     public async Task<IActionResult> Update(string id)
-        {
-            IdentityRole role = await roleManager.FindByIdAsync(id);
-            // List<ApplicationUser> members = new List<ApplicationUser>();
-            IList<ApplicationUser> members = await userManager.GetUsersInRoleAsync(role.Name);
-            List<ApplicationUser> nonMembers = new List<ApplicationUser>();
+    {
+      IdentityRole role = await roleManager.FindByIdAsync(id);
+      IList<ApplicationUser> members = await userManager.GetUsersInRoleAsync(role.Name);
+      List<ApplicationUser> nonMembers = new List<ApplicationUser>();
 
-            foreach (ApplicationUser user in userManager.Users)
-            {
-              if (!members.Contains(user))
-              {
-                nonMembers.Add(user);
-              }
-            }
-            return View(new RoleEdit
-            {
-                Role = role,
-                Members = members,
-                NonMembers = nonMembers
-            });
-        }
- 
-        [HttpPost]
-        public async Task<IActionResult> Update(RoleModification model)
+      foreach (ApplicationUser user in userManager.Users)
+      {
+        if (!members.Contains(user))
         {
-            IdentityResult result;
-            if (ModelState.IsValid)
-            {
-                foreach (string userId in model.AddIds ?? new string[] { })
-                {
-                    ApplicationUser user = await userManager.FindByIdAsync(userId);
-                    if (user != null)
-                    {
-                        result = await userManager.AddToRoleAsync(user, model.RoleName);
-                        if (!result.Succeeded)
-                            Errors(result);
-                    }
-                }
-                foreach (string userId in model.DeleteIds ?? new string[] { })
-                {
-                    ApplicationUser user = await userManager.FindByIdAsync(userId);
-                    if (user != null)
-                    {
-                        result = await userManager.RemoveFromRoleAsync(user, model.RoleName);
-                        if (!result.Succeeded)
-                            Errors(result);
-                    }
-                }
-            }
- 
-            if (ModelState.IsValid)
-                return RedirectToAction(nameof(Index));
-            else
-                return await Update(model.RoleId);
+          nonMembers.Add(user);
         }
+      }
+      return View(new RoleEdit
+      {
+        Role = role,
+        Members = members,
+        NonMembers = nonMembers
+      });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Update(RoleModification model)
+    {
+      IdentityResult result;
+      if (ModelState.IsValid)
+      {
+        foreach (string userId in model.AddIds ?? new string[] { })
+        {
+          ApplicationUser user = await userManager.FindByIdAsync(userId);
+          if (user != null)
+          {
+            result = await userManager.AddToRoleAsync(user, model.RoleName);
+            if (!result.Succeeded)
+              Errors(result);
+          }
+        }
+        foreach (string userId in model.DeleteIds ?? new string[] { })
+        {
+          ApplicationUser user = await userManager.FindByIdAsync(userId);
+          if (user != null)
+          {
+            result = await userManager.RemoveFromRoleAsync(user, model.RoleName);
+            if (!result.Succeeded)
+              Errors(result);
+          }
+        }
+      }
+
+      if (ModelState.IsValid)
+        return RedirectToAction(nameof(Index));
+      else
+        return await Update(model.RoleId);
+    }
   }
 }
