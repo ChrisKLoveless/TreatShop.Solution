@@ -1,7 +1,6 @@
 # Treat Shop
 
-#### Description
-Epicodus Week 12 Code Review
+#### Epicodus Week 12 Code Review
 
 ## Contributors
 
