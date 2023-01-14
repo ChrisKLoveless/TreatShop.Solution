@@ -22,8 +22,14 @@ This independent project demonstrates proficiency with many to many relationship
 ## Setup/Installation Requirements
 
 * Install MySQL Community Server and MySQL Workbench. Follow the instructions _[here](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql/)_.
+* Install tool to update database with ```dotnet tool install --global dotnet-ef --version 6.0.1```
 * Clone down the git repo ```https://github.com/ChrisKLoveless/TreatShop.Solution.git``` to the ```desktop``` directory.
 * Open the project with VSCode or a different source code editor.
+* In the root directory be sure to create a ```.gitignore``` file and input the following to secure your database information:
+    * ```appsettings.json```
+    * ```obj```
+    * ```bin```
+* If you are pushing this project to a remote git repo add ```.gitignore``` to git and commit before moving on.
 * Restore required packages: change directory to ```TreatShop``` and restore with ```$ dotnet restore```
 
 ## Database Setup
