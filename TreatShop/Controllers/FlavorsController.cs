@@ -28,7 +28,6 @@ namespace TreatShop.Controllers
     [Authorize(Roles = "admin")]
     public ActionResult Create()
     {
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
       return View();
     }
 
@@ -91,7 +90,6 @@ namespace TreatShop.Controllers
       return RedirectToAction("Index");
     }
 
-    
     public ActionResult AddTreat(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -99,7 +97,6 @@ namespace TreatShop.Controllers
       return View(thisFlavor);
     }
 
-    
     [HttpPost]
     public ActionResult AddTreat(Flavor flavor, int treatId)
     {
